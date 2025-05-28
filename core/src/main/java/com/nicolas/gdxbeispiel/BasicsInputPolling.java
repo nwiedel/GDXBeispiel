@@ -62,12 +62,12 @@ public class BasicsInputPolling implements ApplicationListener {
             720 - 20f);
 
         font.draw(batch,
-            leftPressed ? "linke Maustaste gedrückt" : "linke Maustaste nicht gedrückt",
+            leftPressed ? "linke Maustaste gedrueckt" : "linke Maustaste nicht gedrueckt",
             20f,
             720 - 50f);
 
         font.draw(batch,
-            rightPressed ? "rechte Maustaste gedrückt" : "rechte Maustaste nicht gedrückt",
+            rightPressed ? "rechte Maustaste gedrueckt" : "rechte Maustaste nicht gedrueckt",
             20f,
             720 - 80f);
 
@@ -76,12 +76,12 @@ public class BasicsInputPolling implements ApplicationListener {
         boolean sPressed = Gdx.input.isKeyPressed(Input.Keys.S);
 
         font.draw(batch,
-            wPressed ? "w-Taste gedrückt" : "w-Taste nicht gedrückt",
+            wPressed ? "w-Taste gedrueckt" : "w-Taste nicht gedrueckt",
             20f,
             720 - 110f);
 
         font.draw(batch,
-            sPressed ? "s-Taste gedrückt" : "s-Taste nicht gedrückt",
+            sPressed ? "s-Taste gedrueckt" : "s-Taste nicht gedrueckt",
             20f,
             720 - 140f);
     }

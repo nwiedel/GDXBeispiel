@@ -77,11 +77,11 @@ public class BasicsInputListening implements ApplicationListener, InputProcessor
             }
         };
 
-        multiplexer.addProcessor(firstProcessor);
-        multiplexer.addProcessor(secondProcessor);
-        Gdx.input.setInputProcessor(multiplexer);
+//        multiplexer.addProcessor(firstProcessor);
+//        multiplexer.addProcessor(secondProcessor);
+//        Gdx.input.setInputProcessor(multiplexer);
 
-        //Gdx.input.setInputProcessor(this);
+        Gdx.input.setInputProcessor(this);
     }
 
     @Override
