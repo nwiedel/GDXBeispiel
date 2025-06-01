@@ -10,12 +10,16 @@ import com.badlogic.gdx.utils.Logger;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.nicolas.gdxbeispiel.common.BeispielBase;
+import com.nicolas.gdxbeispiel.common.BeispielInfo;
 import com.nicolas.gdxbeispiel.utils.Utilities;
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
-public class BasicsInputListening implements ApplicationListener, InputProcessor {
+public class BasicsInputListening extends BeispielBase {
 
     private static final Logger log = new Logger(BasicsInputListening.class.getSimpleName(), Logger.DEBUG);
+
+    public static final BeispielInfo BEISPIEL_INFO = new BeispielInfo(BasicsInputListening.class);
 
     private static final int MAX_MESSAGE_COUNT = 15;
 

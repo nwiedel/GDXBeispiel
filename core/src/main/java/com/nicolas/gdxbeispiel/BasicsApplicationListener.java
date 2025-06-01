@@ -4,11 +4,15 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Logger;
+import com.nicolas.gdxbeispiel.common.BeispielBase;
+import com.nicolas.gdxbeispiel.common.BeispielInfo;
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
-public class BasicsApplicationListener implements ApplicationListener {
+public class BasicsApplicationListener extends BeispielBase {
 
     private static final Logger log = new Logger(BasicsApplicationListener.class.getSimpleName(), Logger.DEBUG);
+
+    public static final BeispielInfo BEISPIEL_INFO = new BeispielInfo(BasicsApplicationListener.class);
 
     private boolean renderInterrupted = true;
 

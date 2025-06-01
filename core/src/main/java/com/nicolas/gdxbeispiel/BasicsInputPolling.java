@@ -10,10 +10,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.nicolas.gdxbeispiel.common.BeispielBase;
+import com.nicolas.gdxbeispiel.common.BeispielInfo;
 import com.nicolas.gdxbeispiel.utils.Utilities;
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
-public class BasicsInputPolling implements ApplicationListener {
+public class BasicsInputPolling extends BeispielBase {
+
+    public static final BeispielInfo BEISPIEL_INFO = new BeispielInfo(BasicsInputPolling.class);
 
     private OrthographicCamera camera;
     private Viewport viewport;

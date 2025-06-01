@@ -14,13 +14,17 @@ import com.badlogic.gdx.utils.reflect.Field;
 import com.badlogic.gdx.utils.reflect.Method;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.nicolas.gdxbeispiel.common.BeispielBase;
+import com.nicolas.gdxbeispiel.common.BeispielInfo;
 
 import java.util.Arrays;
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
-public class GdxReflection implements ApplicationListener {
+public class GdxReflection extends BeispielBase {
 
     private static final Logger log = new Logger(GdxReflection.class.getSimpleName(), Logger.DEBUG);
+
+    public static final BeispielInfo BEISPIEL_INFO = new BeispielInfo(GdxReflection.class);
 
     private OrthographicCamera camera;
     private Viewport viewport;

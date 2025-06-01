@@ -2,7 +2,8 @@ package com.nicolas.gdxbeispiel.lwjgl2;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.lwjgl.LwjglAWTCanvas;
-import com.badlogic.gdx.utils.reflect.ClassReflection;
+import com.nicolas.gdxbeispiel.common.BeispielFactory;
+import com.nicolas.gdxbeispiel.common.BeispielInfos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +17,7 @@ public class GDXBeispielLauncher extends JFrame {
     private static final int CANVAS_WIDTH = WIDTH - CELL_WIDTH;
 
     private LwjglAWTCanvas lwjglAWTCanvas;
-    private JList<String> beispielList;
+    private JList beispielList;
     private JPanel controlPanel;
 
     public GDXBeispielLauncher() throws HeadlessException {
@@ -57,9 +58,10 @@ public class GDXBeispielLauncher extends JFrame {
         c.fill = GridBagConstraints.VERTICAL;
         c.weighty = 1;
 
-        beispielList = new JList<String>(
-            new String[]{"BasicsInputPolling"}
-        );
+        beispielList = new JList(
+            BeispielInfos.getBeispielNames().toArray());
+
+
         beispielList.setFixedCellWidth(CELL_WIDTH);
         beispielList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         beispielList.addMouseListener(new MouseAdapter() {
@@ -90,13 +92,13 @@ public class GDXBeispielLauncher extends JFrame {
     }
 
     private void launchSelectedBeispiel(){
-        String beispielName = beispielList.getSelectedValue();
+        String beispielName = (String) beispielList.getSelectedValue();
 
         if (beispielName == null || beispielName.isEmpty()){
             System.out.println("Kein Beispiel gewählt!");
             return;
         }
-        launchBeispiel("com.nicolas.gdxbeispiel." + beispielName);
+        launchBeispiel(beispielName);
     }
 
     private void launchBeispiel(String name){
@@ -109,14 +111,8 @@ public class GDXBeispielLauncher extends JFrame {
             container.remove(lwjglAWTCanvas.getCanvas());
         }
 
-        ApplicationListener beispiel;
-        try{
-            Class<ApplicationListener> clazz = ClassReflection.forName(name);
+        ApplicationListener beispiel = BeispielFactory.newBeispiel(name);
 
-            beispiel = ClassReflection.newInstance(clazz);
-        } catch (Exception e){
-            throw new RuntimeException("Kann das Beispiel mit Namen: " + name + " nicht starten!");
-        }
         lwjglAWTCanvas = new LwjglAWTCanvas(beispiel);
         lwjglAWTCanvas.getCanvas().setSize(CANVAS_WIDTH, HEIGHT);
         container.add(lwjglAWTCanvas.getCanvas(), BorderLayout.CENTER);

@@ -8,11 +8,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Logger;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.nicolas.gdxbeispiel.common.BeispielBase;
+import com.nicolas.gdxbeispiel.common.BeispielInfo;
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
-public class BasicsModule implements ApplicationListener {
+public class BasicsModule extends BeispielBase {
 
     private static final Logger log = new Logger(BasicsModule.class.getSimpleName(), Logger.DEBUG);
+
+    public static final BeispielInfo BEISPIEL_INFO = new BeispielInfo(BasicsModule.class);
 
     @Override
     public void create() {
