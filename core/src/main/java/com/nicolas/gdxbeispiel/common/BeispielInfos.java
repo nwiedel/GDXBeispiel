@@ -12,7 +12,8 @@ public class BeispielInfos {
         BasicsInputListening.BEISPIEL_INFO,
         BasicsInputPolling.BEISPIEL_INFO,
         BasicsModule.BEISPIEL_INFO,
-        GdxReflection.BEISPIEL_INFO
+        GdxReflection.BEISPIEL_INFO,
+        BasicsOrthographicCamera.BEISPIEL_INFO
     );
 
     public static List<String> getBeispielNames(){
