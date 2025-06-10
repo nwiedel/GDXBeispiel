@@ -1,7 +1,6 @@
 package com.nicolas.gdxbeispiel.utils;
 
 import com.badlogic.gdx.graphics.Color;
-import jdk.internal.classfile.impl.Util;
 
 public class Utilities {
 
