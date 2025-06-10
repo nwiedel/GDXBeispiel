@@ -2,17 +2,17 @@ package com.nicolas.gdxbeispiel;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ArrayMap;
 import com.badlogic.gdx.utils.Logger;
+import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.*;
 import com.nicolas.gdxbeispiel.common.BeispielBase;
 import com.nicolas.gdxbeispiel.common.BeispielInfo;
-import com.nicolas.gdxbeispiel.common.BeispielInfos;
+import com.nicolas.gdxbeispiel.utils.Utilities;
 
 
 public class BasicsViewport extends BeispielBase {
@@ -33,7 +33,7 @@ public class BasicsViewport extends BeispielBase {
     private ArrayMap<String, Viewport> viewports = new ArrayMap<>();
 
     private int currentViewportIndex;
-    private String currentVieportName;
+    private String currentViewportName;
 
     @Override
     public void create() {
@@ -46,6 +46,23 @@ public class BasicsViewport extends BeispielBase {
 
         createViewports();
         selectNextViewport();
+
+        Gdx.input.setInputProcessor(this);
+    }
+
+    @Override
+    public void render() {
+        ScreenUtils.clear(Utilities.CORNFLOWER_BLUE);
+
+        batch.setProjectionMatrix(camera.combined);
+        batch.begin();
+        draw();
+        batch.end();
+    }
+
+    private void draw(){
+        batch.draw(texture, 0, 0, WORLD_WIDTH, WORLD_HEIGHT);
+        font.draw(batch, currentViewportName, 50, 100);
     }
 
     @Override
@@ -84,8 +101,8 @@ public class BasicsViewport extends BeispielBase {
         currentViewportIndex = (currentViewportIndex + 1) % viewports.size;
         currentViewport = viewports.getValueAt(currentViewportIndex);
         currentViewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        currentVieportName = viewports.getKeyAt(currentViewportIndex);
+        currentViewportName = viewports.getKeyAt(currentViewportIndex);
 
-        log.debug("ausgewählter Viewport = " + currentVieportName);
+        log.debug("ausgewählter Viewport = " + currentViewportName);
     }
 }
