@@ -15,7 +15,8 @@ public class BeispielInfos {
         GdxReflection.BEISPIEL_INFO,
         BasicsOrthographicCamera.BEISPIEL_INFO,
         BasicsViewport.BEISPIEL_INFO,
-        BasicsSpriteBatch.BEISPIEL_INFO
+        BasicsSpriteBatch.BEISPIEL_INFO,
+        BasicsShapeRenderer.BEISPIEL_INFO
     );
 
     public static List<String> getBeispielNames(){
