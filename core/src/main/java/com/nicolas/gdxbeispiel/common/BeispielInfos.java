@@ -1,6 +1,7 @@
 package com.nicolas.gdxbeispiel.common;
 
 import com.nicolas.gdxbeispiel.*;
+import com.nicolas.gdxbeispiel.utils.BasicsBitmapFont;
 
 import java.util.*;
 
@@ -16,7 +17,8 @@ public class BeispielInfos {
         BasicsOrthographicCamera.BEISPIEL_INFO,
         BasicsViewport.BEISPIEL_INFO,
         BasicsSpriteBatch.BEISPIEL_INFO,
-        BasicsShapeRenderer.BEISPIEL_INFO
+        BasicsShapeRenderer.BEISPIEL_INFO,
+        BasicsBitmapFont.BEISPIEL_INFO
     );
 
     public static List<String> getBeispielNames(){
