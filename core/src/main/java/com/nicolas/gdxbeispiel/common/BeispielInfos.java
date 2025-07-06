@@ -18,7 +18,8 @@ public class BeispielInfos {
         BasicsViewport.BEISPIEL_INFO,
         BasicsSpriteBatch.BEISPIEL_INFO,
         BasicsShapeRenderer.BEISPIEL_INFO,
-        BasicsBitmapFont.BEISPIEL_INFO
+        BasicsBitmapFont.BEISPIEL_INFO,
+        BasicsPooling.BEISPIEL_INFO
     );
 
     public static List<String> getBeispielNames(){
