@@ -20,7 +20,8 @@ public class BeispielInfos {
         BasicsShapeRenderer.BEISPIEL_INFO,
         BasicsBitmapFont.BEISPIEL_INFO,
         BasicsPooling.BEISPIEL_INFO,
-        BasicsAssetManager.BEISPIEL_INFO
+        BasicsAssetManager.BEISPIEL_INFO,
+        BasicsTexturePacker.BEISPIEL_INFO
     );
 
     public static List<String> getBeispielNames(){
