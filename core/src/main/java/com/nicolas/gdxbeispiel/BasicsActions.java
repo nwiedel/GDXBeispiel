@@ -1,4 +1,4 @@
-package com.nicolas.gdxbeispiel.utils;
+package com.nicolas.gdxbeispiel;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
@@ -16,11 +16,11 @@ import com.nicolas.gdxbeispiel.common.BeispielBase;
 import com.nicolas.gdxbeispiel.common.BeispielInfo;
 import com.nicolas.gdxbeispiel.common.CustomActor;
 
-public class BasicsCustomActor extends BeispielBase {
+public class BasicsActions extends BeispielBase {
 
-    private static final Logger log = new Logger(BasicsCustomActor.class.getSimpleName(), Logger.DEBUG);
+    private static final Logger log = new Logger(BasicsActions.class.getSimpleName(), Logger.DEBUG);
 
-    public static final BeispielInfo BEISPIEL_INFO = new BeispielInfo(BasicsCustomActor.class);
+    public static final BeispielInfo BEISPIEL_INFO = new BeispielInfo(BasicsActions.class);
 
     private static final float WORLD_WIDTH = 1080f;
     private static final float WORLD_HEIGHT = 720f;
@@ -46,15 +46,8 @@ public class BasicsCustomActor extends BeispielBase {
             (WORLD_HEIGHT - customActor.getHeight()) / 2f
         );
 
-        customActor.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                log.debug("customActor clicked = " + event + " x = " + x + " y = " + y);
-            }
-        });
-
         stage.addActor(customActor);
-        Gdx.input.setInputProcessor(stage);
+        Gdx.input.setInputProcessor(this);
     }
 
     @Override

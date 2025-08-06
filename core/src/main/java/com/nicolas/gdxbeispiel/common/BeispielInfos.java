@@ -2,7 +2,7 @@ package com.nicolas.gdxbeispiel.common;
 
 import com.nicolas.gdxbeispiel.*;
 import com.nicolas.gdxbeispiel.utils.BasicsBitmapFont;
-import com.nicolas.gdxbeispiel.utils.BasicsCustomActor;
+import com.nicolas.gdxbeispiel.BasicsCustomActor;
 
 import java.util.*;
 
@@ -23,7 +23,8 @@ public class BeispielInfos {
         BasicsPooling.BEISPIEL_INFO,
         BasicsAssetManager.BEISPIEL_INFO,
         BasicsTexturePacker.BEISPIEL_INFO,
-        BasicsCustomActor.BEISPIEL_INFO
+        BasicsCustomActor.BEISPIEL_INFO,
+        BasicsActions.BEISPIEL_INFO
     );
 
     public static List<String> getBeispielNames(){
