@@ -24,7 +24,8 @@ public class BeispielInfos {
         BasicsAssetManager.BEISPIEL_INFO,
         BasicsTexturePacker.BEISPIEL_INFO,
         BasicsCustomActor.BEISPIEL_INFO,
-        BasicsActions.BEISPIEL_INFO
+        BasicsActions.BEISPIEL_INFO,
+        BasicsTable.BEISPIEL_INFO
     );
 
     public static List<String> getBeispielNames(){
