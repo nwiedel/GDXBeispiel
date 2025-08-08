@@ -45,6 +45,21 @@ public class BasicsTable extends BeispielBase {
 
     private void initUI(){
         Table table = new Table();
+        table.defaults().space(20);
+
+        for (int i = 0; i < 6; i++){
+            CustomActor customActor = new CustomActor(new TextureRegion(texture));
+            // Größe muss gesetzt werden! Default ist 0!
+            customActor.setSize(180, 60);
+            table.add(customActor);
+            table.row();
+        }
+        table.center();
+        table.setFillParent(true);
+        table.pack();
+
+        stage.addActor(table);
+        stage.setDebugAll(true);
     }
 
     @Override
