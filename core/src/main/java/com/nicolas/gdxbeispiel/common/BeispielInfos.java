@@ -25,7 +25,8 @@ public class BeispielInfos {
         BasicsTexturePacker.BEISPIEL_INFO,
         BasicsCustomActor.BEISPIEL_INFO,
         BasicsActions.BEISPIEL_INFO,
-        BasicsTable.BEISPIEL_INFO
+        BasicsTable.BEISPIEL_INFO,
+        BasicsSkin.BEISPIEL_INFO
     );
 
     public static List<String> getBeispielNames(){
