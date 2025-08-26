@@ -26,7 +26,8 @@ public class BeispielInfos {
         BasicsCustomActor.BEISPIEL_INFO,
         BasicsActions.BEISPIEL_INFO,
         BasicsTable.BEISPIEL_INFO,
-        BasicsSkin.BEISPIEL_INFO
+        BasicsSkin.BEISPIEL_INFO,
+        BasicsAshleyEngine.BEISPIEL_INFO
     );
 
     public static List<String> getBeispielNames(){
