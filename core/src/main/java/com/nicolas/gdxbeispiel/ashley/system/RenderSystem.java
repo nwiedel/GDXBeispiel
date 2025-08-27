@@ -36,12 +36,6 @@ public class RenderSystem extends EntitySystem {
 
     private ImmutableArray<Entity> entities;
 
-    public RenderSystem(int priority, Viewport viewport, SpriteBatch batch) {
-        super(priority);
-        this.viewport = viewport;
-        this.batch = batch;
-    }
-
     @Override
     public void addedToEngine(Engine engine) {
         log.debug("added to engine!");

@@ -2,7 +2,10 @@ package com.nicolas.gdxbeispiel;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.ashley.core.EntityListener;
+import com.badlogic.ashley.core.Family;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -30,10 +33,15 @@ public class BasicsAshleySystem extends BeispielBase {
     private static final String LEVEL_BG = "raw/level-bg.png";
     private static final String CHARACTER = "raw/character.png";
 
+    private static final Family FAMILY = Family.all(TextureComponent.class).get();
+
     private AssetManager assetManager;
     private Viewport viewport;
     private SpriteBatch batch;
     private Engine engine;
+
+    private Entity entity;
+    private TextureComponent texture;
 
     @Override
     public void create() {
@@ -48,8 +56,26 @@ public class BasicsAshleySystem extends BeispielBase {
         assetManager.load(CHARACTER, Texture.class);
         assetManager.finishLoading();
 
+        Gdx.input.setInputProcessor(this);
+
         addBackground();
         addCharacter();
+
+        engine.addEntityListener(FAMILY, new EntityListener() {
+            @Override
+            public void entityAdded(Entity entity) {
+                log.debug("family size = " + engine.getEntitiesFor(FAMILY).size());
+                log.debug("total size = " + engine.getEntities().size());
+                log.debug("entity added to family");
+            }
+
+            @Override
+            public void entityRemoved(Entity entity) {
+                log.debug("family size = " + engine.getEntitiesFor(FAMILY).size());
+                log.debug("total size = " + engine.getEntities().size());
+                log.debug("entity removed to family");
+            }
+        });
 
         engine.addSystem(new RenderSystem(viewport, batch));
     }
@@ -83,15 +109,31 @@ public class BasicsAshleySystem extends BeispielBase {
         size.width = 2;
         size.height = 2;
 
-        TextureComponent texture = new TextureComponent();
+        texture = new TextureComponent();
         texture.texture = assetManager.get(CHARACTER);
 
-        Entity entity = new Entity();
+        entity = new Entity();
         entity.add(position);
         entity.add(size);
         entity.add(texture);
 
         engine.addEntity(entity);
+    }
+
+    @Override
+    public boolean keyUp(int keycode) {
+        if(keycode == Input.Keys.R){
+            if (FAMILY.matches(entity)){
+                entity.remove(TextureComponent.class);
+            }
+        }
+        else if(keycode == Input.Keys.A){
+            if(!FAMILY.matches(entity)){
+                entity.add(texture);
+            }
+        }
+
+        return true;
     }
 
     @Override
